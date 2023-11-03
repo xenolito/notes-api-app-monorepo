@@ -32,14 +32,14 @@ export const NoteForm = ({ addNote, handleLogOut }) => {
   // console.log(togglableRef)
 
   return (
-      <Togglable buttonShowLabel="New Note" ref={ togglableRef }>
+    <Togglable buttonShowLabel='New Note' ref={togglableRef}>
       <h2>Create a New Note</h2>
-        <form id="form-manager" onSubmit={handleSubmit}>
-          <textarea id='note_content' onChange={handleChange} cols="36" rows="3" value={newNote} />
-          <br/>
-          <button type='submit'>Crear Nota</button>
-        </form>
-        <button onClick={handleLogOut}>Log Out</button>
-        </Togglable>
+      <form id='form-manager' onSubmit={handleSubmit}>
+        <textarea id='note_content' onChange={handleChange} cols='36' rows='3' value={newNote} />
+        <br />
+        <button type='submit'>Crear Nota</button>
+      </form>
+      <button onClick={handleLogOut}>Log Out</button>
+    </Togglable>
   )
 }

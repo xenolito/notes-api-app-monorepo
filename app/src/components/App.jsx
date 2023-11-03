@@ -115,26 +115,26 @@ export default function App (props) {
     <div>
       <h1>Aplicación Notas</h1>
 
-      <Notification message={ errorMessage } />
+      <Notification message={errorMessage} />
       {/* <p>{props.children}</p> */}
       <div>
         {
           user
             ? <NoteForm
-              handleLogOut={handleLogOut}
-              addNote={addNote}
-            />
+                handleLogOut={handleLogOut}
+                addNote={addNote}
+              />
             : <LoginForm
-            username={username}
-            password={password}
-            setUserName={(event) => setUserName(event.target.value)}
-            setPassword={(event) => setPassword(event.target.value)}
-            handleSubmit={handleLoginSubmit}
-          />
+                username={username}
+                password={password}
+                setUserName={(event) => setUserName(event.target.value)}
+                setPassword={(event) => setPassword(event.target.value)}
+                handleSubmit={handleLoginSubmit}
+              />
         }
       </div>
       <div style={{ marginTop: '2rem' }}>
-        <button style={{ backgroundColor: '#0099ff', color: 'white', padding: '.5rem', borderRadius: '5px', minWidth: '100px' } } onClick={handleShowAll}>{ showAll ? 'Show important' : 'Show All'}</button>
+        <button style={{ backgroundColor: '#0099ff', color: 'white', padding: '.5rem', borderRadius: '5px', minWidth: '100px' }} onClick={handleShowAll}>{showAll ? 'Show important' : 'Show All'}</button>
 
       </div>
       {
@@ -148,11 +148,11 @@ export default function App (props) {
                 return note.important === true
               })
               .map(note => <Note
-              key={ note.id }
-              note={ note }
-              toggleImportance={() => toggleImportanceOf(note.id)}
-              deleteNote={ () => removeNote(note.id)}
-            />)
+                key={note.id}
+                note={note}
+                toggleImportance={() => toggleImportanceOf(note.id)}
+                deleteNote={() => removeNote(note.id)}
+                           />)
           }
       </div>
     </div>

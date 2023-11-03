@@ -1,7 +1,6 @@
 import { useState, useImperativeHandle, forwardRef } from 'react'
 import PropTypes from 'prop-types'
 
-// eslint-disable-next-line react/display-name
 const Togglable = forwardRef(({ children, buttonShowLabel = 'default buttonLabel text' }, ref) => {
   const [visible, setVisible] = useState(false)
 
@@ -15,17 +14,17 @@ const Togglable = forwardRef(({ children, buttonShowLabel = 'default buttonLabel
   })
 
   return (
-      <div>
-        <div style={ hideWhenVisible }>
-              <button onClick={toggleVisibility}>{ buttonShowLabel }</button>
-        </div>
-        <div style={showWhenVisible}>
-              {children}
-              <div style={{ marginTop: '2rem' }}>
-                <button onClick={toggleVisibility}>Cancel</button>
-            </div>
+    <div>
+      <div style={hideWhenVisible}>
+        <button onClick={toggleVisibility}>{buttonShowLabel}</button>
+      </div>
+      <div style={showWhenVisible}>
+        {children}
+        <div style={{ marginTop: '2rem' }}>
+          <button onClick={toggleVisibility}>Cancel</button>
         </div>
       </div>
+    </div>
   )
 }
 )

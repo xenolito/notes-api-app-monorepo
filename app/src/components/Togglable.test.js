@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import { fireEvent, prettyDOM, render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { Togglable } from './Togglable'
 
 describe('<Togglable />', () => {
@@ -8,8 +8,8 @@ describe('<Togglable />', () => {
 
   beforeEach(() => {
     component = render(
-      <Togglable buttonShowLabel={ buttonLabel }>
-        <div className="testDiv">
+      <Togglable buttonShowLabel={buttonLabel}>
+        <div className='testDiv'>
           hola que ase
         </div>
       </Togglable>
