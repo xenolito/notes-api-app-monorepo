@@ -1,0 +1,17 @@
+.note {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #999;
+}
+
+#form-manager {
+    margin-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.error-msg {
+    border: 1px solid red;
+    background-color: rgba(255,0,0,0.1);
+    color: red;
+    padding: 2rem;
+    border-radius: 6px;
+}
