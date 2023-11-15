@@ -28,8 +28,8 @@ const verifyJson = {
 // app.use(cors())
 
 app.use(express.json(verifyJson))
-app.use(express.static('../app/dist')) // --> en la raíz de la url de la api, mostrara nuestra app
-// app.use(express.static('public'))
+// app.use(express.static('../app/dist')) // --> en la raíz de la url de la api, mostrara nuestra app
+app.use(express.static('public'))
 
 app.use(logger)
 

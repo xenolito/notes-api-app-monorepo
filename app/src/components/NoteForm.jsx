@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import { Togglable } from './Togglable'
 
-export const NoteForm = ({ addNote, handleLogOut }) => {
+export const NoteForm = ({ addNote }) => {
   const [newNote, setNewNote] = useState('')
 
   const togglableRef = useRef()
@@ -39,7 +39,6 @@ export const NoteForm = ({ addNote, handleLogOut }) => {
         <br />
         <button type='submit'>Crear Nota</button>
       </form>
-      <button onClick={handleLogOut}>Log Out</button>
     </Togglable>
   )
 }
