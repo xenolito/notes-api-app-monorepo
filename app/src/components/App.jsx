@@ -6,6 +6,7 @@ import Notes from './Notes'
 import NoteDetail from './NoteDetail'
 import Login from './Login'
 import Users from './Users'
+import { Suspense } from 'react'
 
 const Home = () => <h1>Homepage y Olé</h1>
 
@@ -22,31 +23,33 @@ const App = () => {
 
   return (
     <Router>
-      <header style={{ display: 'flex', gap: '1rem' }}>
-        <Link to='/'>Home</Link>
-        <Link to='/users'>Users</Link>
-        <Link to='/users/byname'>Users by Name</Link>
-        <Link to='/notes'>Notes</Link>
-        {
-          // console.log(user)
-        }
-        {
+      <Suspense fallback={<span>Loading component...</span>}>
+        <div className='container'>
+          <header style={{ display: 'flex', gap: '1rem' }}>
+            <Link to='/'>Home</Link>
+            <Link to='/users'>Users</Link>
+            <Link to='/users/byname'>Users by Name</Link>
+            <Link to='/notes'>Notes</Link>
+            {
           user?.name ? <div><em>logged as {user.name} </em><button onClick={handleLogOut}>Log out</button></div> : <Link to='/login'>Login</Link>
-        }
-      </header>
-      <Routes>
-        <Route
-          path='/login' element={
+            }
+
+          </header>
+          <Routes>
+            <Route
+              path='/login' element={
             user ? <Navigate replace to='/' /> : <Login setUser={setUser} />
           }
-        />
-        <Route path='/users' element={<Users />}>
-          <Route path='/users/byname' element={<UsersByName />} />
-        </Route>
-        <Route path='/notes' element={<Notes user={user} />} />
-        <Route path='/notes/:noteId' element={<NoteDetail notes={notes} />} />
-        <Route path='/' element={<Home />} />
-      </Routes>
+            />
+            <Route path='/users' element={<Users />}>
+              <Route path='/users/byname' element={<UsersByName />} />
+            </Route>
+            <Route path='/notes' element={<Notes user={user} />} />
+            <Route path='/notes/:noteId' element={<NoteDetail notes={notes} />} />
+            <Route path='/' element={<Home />} />
+          </Routes>
+        </div>
+      </Suspense>
     </Router>
   )
 }

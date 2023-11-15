@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
+import useUser from '../hooks/useUser'
 
 const Note = ({ note, toggleImportance, deleteNote }) => {
+  const { user } = useUser()
+
   const labelImportance = note.important ? 'make NOT important' : 'make important!'
   const impColor = note.important ? 'red' : 'green'
   return (
@@ -13,16 +16,21 @@ const Note = ({ note, toggleImportance, deleteNote }) => {
       <time>{note.date}</time>
       <small>{note.body}</small>
       <br />
-      <button style={{ marginTop: '1rem' }} onClick={toggleImportance}>{labelImportance}</button>
+      {
+        user && <button style={{ marginTop: '1rem' }} onClick={toggleImportance}>{labelImportance}</button>
+      }
       <br />
-      <button
-        style={{
-          backgroundColor: 'red',
-          color: 'white',
-          marginTop: '1rem'
-        }} onClick={deleteNote}
-      >Borrar Nota
-      </button>
+      {
+        user &&
+          <button
+            style={{
+              backgroundColor: 'red',
+              color: 'white',
+              marginTop: '1rem'
+            }} onClick={deleteNote}
+          >Borrar Nota
+          </button>
+      }
     </div>
   )
 }
