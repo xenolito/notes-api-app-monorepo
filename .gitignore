@@ -5,3 +5,5 @@ dist-ssr
 *.local
 .DS_Store
 app_OLD
+.vscode
+*.code-workspace
