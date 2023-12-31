@@ -27,7 +27,7 @@ mailRouter.post('/', async (request, response, next) => {
   // console.log('validCORS: ', corsMiddleware.validCORS(headers.origin), headers.origin)
 
   if (!corsMiddleware.validCORS(headers.origin)) {
-    return response.status(403).json({ error: 'forbidden by CORS' })
+    return response.status(403).json({ error: 'forbidden, missing API Key' })
   }
 
   if (!process.env.MAIL_USR || !process.env.MAIL_PASS) {
