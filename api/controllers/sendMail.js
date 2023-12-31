@@ -12,7 +12,7 @@ mailRouter.get('/', async (request, response, next) => {
 
 mailRouter.post('/', async (request, response, next) => {
   const { body, headers } = request
-  const { to, subject, content } = body
+  const { to, subject, content, from } = body
 
   // console.log('headers', request.headers)
 
@@ -48,7 +48,7 @@ mailRouter.post('/', async (request, response, next) => {
 
   async function main () {
     const info = await transporter.sendMail({
-      from: '"Hola que ase 🍹" <hello@pictau.com>',
+      from: from || '"Hola que ase 🍹" <hello@pictau.com>',
       to,
       subject,
       html: content

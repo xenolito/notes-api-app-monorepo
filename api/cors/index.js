@@ -1,6 +1,6 @@
 const corsMiddleware = require('cors')
 
-const corsOriginAllowed = process.env.CORS_ALLOWED.split(', ')
+const corsOriginAllowed = process.env.CORS_ALLOWED.split(', ') // ! Ojo con el espacio después de la coma a la hora de definir los ENV vars en el servidor. ("https:pictau.com, http://.." --> es correcto ) ("https:pictau.com,http://.." --> es INCORRECTO )
 
 // const corsOptionsDelegate = function (req, callback) {
 //   let corsOptions
